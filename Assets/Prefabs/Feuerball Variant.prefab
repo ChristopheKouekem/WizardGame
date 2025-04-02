@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &502531798840139069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -9.313226e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134433136531134477, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093401258968471401, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: geschw
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668557042707793596, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668557042707793596, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5330405
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5597385
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.06664266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619086533774489196, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524549606749999184, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Name
+      value: Feuerball Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631865924976672496, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631865924976672496, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edb0d547925b0b247ad71c5266c45e95, type: 3}
