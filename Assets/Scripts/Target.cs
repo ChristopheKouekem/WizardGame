@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public Vector2 respawnRangeMin = new Vector2(-1, -1);
-    public Vector2 respawnRangeMax = new Vector2(1, 1);
+    public Vector2 respawnRangeMin = new Vector2(-0.2f, -0.2f);
+    public Vector2 respawnRangeMax = new Vector2(0.2f, 0.2f);
 
     void OnTriggerEnter2D(Collider2D collision)
     {

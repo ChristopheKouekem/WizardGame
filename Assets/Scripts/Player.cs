@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject prefab;
+    private Vector3 richtung = Vector3.right;
 
     void Update()
     {
@@ -16,12 +17,16 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) input += Vector3.left;
         if (Input.GetKey(KeyCode.D)) input += Vector3.right;
 
+        if (input != Vector3.zero) richtung = input.normalized;
+
         transform.position += input.normalized * geschw;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject Feuerball = Instantiate(prefab, transform.position + Vector3.right * 1.0f, Quaternion.identity);
+            GameObject Feuerball = Instantiate(prefab, transform.position + richtung * 1.0f, Quaternion.identity);
+            Feuerball.GetComponent<Fireball>().SetDirection(richtung);
             Destroy(Feuerball, 3);
         }
     }
 }
+
