@@ -18,4 +18,5 @@ public class Fireball : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = richtung * geschw;
     }
+
 }
