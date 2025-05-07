@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Target : MonoBehaviour
 {
-    public Vector2 respawnRangeMin = new Vector2(-0.1f, -0.1f);
-    public Vector2 respawnRangeMax = new Vector2(0.1f, 0.1f);
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Feuerball"))
@@ -18,9 +16,15 @@ public class Target : MonoBehaviour
 
     void NeuesTarget()
     {
-        float newX = Random.Range(respawnRangeMin.x, respawnRangeMax.x);
-        float newY = Random.Range(respawnRangeMin.y, respawnRangeMax.y);
-        transform.position = new Vector2(newX, newY);
+        float newX, newY;
+
+        do
+        {
+            newX = Random.Range(-12, 12);
+            newY = Random.Range(-6, 6);
+        } while (transform.position.x == newX || transform.position.y == newY);
+        transform.position = new Vector3(newX, newY, 0);
+        UI.score += 100;
     }
 
 }

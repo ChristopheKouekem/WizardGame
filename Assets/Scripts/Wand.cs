@@ -16,11 +16,11 @@ public class Wand : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Feuerball"))
+        if (collider.gameObject.tag == "Feuerball")
         {
-            Destroy(collision.gameObject);
+            Destroy(collider.gameObject);
         }
     }
 }

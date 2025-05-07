@@ -6,10 +6,25 @@ public class Player : MonoBehaviour
 {
     public GameObject prefab;
     private Vector3 richtung = Vector3.right;
+    public int maxMana = 100;
+    public int currentMana;
+    public int manaCostPerShot = 10;
+    public int manaRegenPerSecond = 5;
+    private float manaRegen;
+    public int maxHealth = 100;
+    public int currentHealth;
+    private WizardClass stats;
+
+    void Start()
+    {
+        currentMana = maxMana;
+        currentHealth = maxHealth;
+        stats = new WizardClass();
+    }
 
     void Update()
     {
-        float geschw = 5f * Time.deltaTime;
+        float geschw = 8f * Time.deltaTime;
 
         Vector3 input = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) input += Vector3.up;
@@ -21,23 +36,25 @@ public class Player : MonoBehaviour
 
         transform.position += input.normalized * geschw;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (currentMana >= 10)
         {
-            GameObject Feuerball = Instantiate(prefab, transform.position + richtung * 1.0f, Quaternion.identity);
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
+            {
+                GameObject Feuerball = Instantiate(prefab, transform.position + richtung * 1.0f, Quaternion.identity);
 
-            if (richtung == Vector3.up) Feuerball.transform.eulerAngles = new Vector3(0, 0, 90);
-            else if (richtung == Vector3.down) Feuerball.transform.eulerAngles = new Vector3(0, 0, 270);
-            else if (richtung == Vector3.left) Feuerball.transform.eulerAngles = new Vector3(0, 0, 180);
-            else if (richtung == Vector3.right) Feuerball.transform.eulerAngles = new Vector3(0, 0, 0);
-            else if (richtung == (Vector3.up + Vector3.right).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 45);
-            else if (richtung == (Vector3.up + Vector3.left).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 135);
-            else if (richtung == (Vector3.down + Vector3.right).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, -45);
-            else if (richtung == (Vector3.down + Vector3.left).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 225);
-            Feuerball.GetComponent<Fireball>().SetDirection(richtung);
-            Destroy(Feuerball, 3);
+                if (richtung == Vector3.up) Feuerball.transform.eulerAngles = new Vector3(0, 0, 90);
+                else if (richtung == Vector3.down) Feuerball.transform.eulerAngles = new Vector3(0, 0, 270);
+                else if (richtung == Vector3.left) Feuerball.transform.eulerAngles = new Vector3(0, 0, 180);
+                else if (richtung == Vector3.right) Feuerball.transform.eulerAngles = new Vector3(0, 0, 0);
+                else if (richtung == (Vector3.up + Vector3.right).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 45);
+                else if (richtung == (Vector3.up + Vector3.left).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 135);
+                else if (richtung == (Vector3.down + Vector3.right).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, -45);
+                else if (richtung == (Vector3.down + Vector3.left).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 225);
+                Feuerball.GetComponent<Fireball>().SetDirection(richtung);
+                Destroy(Feuerball, 3);
+                currentMana -= 10;
+            }
         }
-
-
 
         GetComponent<Animator>().SetBool("IsWalking", false);
 
@@ -48,15 +65,25 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
+        manaRegen += Time.deltaTime;
+        if (manaRegen >= 0.05f)
+        {
+            currentMana += 1;
+            manaRegen = 0f;
+        }
 
+        if (currentMana >= 100)
+        {
+            currentMana = maxMana;
+        }
     }
 }
 
