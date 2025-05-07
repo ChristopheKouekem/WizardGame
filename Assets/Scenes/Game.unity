@@ -321,6 +321,8 @@ MonoBehaviour:
   text1: {fileID: 1187030834}
   text2: {fileID: 1057651561}
   text3: {fileID: 1946557024}
+  Mana: {fileID: 1010576955}
+  Health: {fileID: 399183918}
 --- !u!1 &447219194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 118678977981719098, guid: 00af5f9f9ac455b4a838b03719bdf489, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: b5692bfbd9c3dc04cb95684b4b4fcf12, type: 2}
     - target: {fileID: 118678977981719098, guid: 00af5f9f9ac455b4a838b03719bdf489, type: 3}
       propertyPath: prefab
       value: 

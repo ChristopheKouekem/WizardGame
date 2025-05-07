@@ -6,25 +6,18 @@ public class Player : MonoBehaviour
 {
     public GameObject prefab;
     private Vector3 richtung = Vector3.right;
-    public int maxMana = 100;
-    public int currentMana;
-    public int manaCostPerShot = 10;
-    public int manaRegenPerSecond = 5;
-    private float manaRegen;
-    public int maxHealth = 100;
-    public int currentHealth;
-    private WizardClass stats;
+
+    public WizardClass stats;
 
     void Start()
     {
-        currentMana = maxMana;
-        currentHealth = maxHealth;
-        stats = new WizardClass();
+        stats.currentMana = stats.maxMana;
+        stats.currentHealth = stats.maxHealth;
     }
 
     void Update()
     {
-        float geschw = 8f * Time.deltaTime;
+        float geschw = stats.movementSpeed * Time.deltaTime;
 
         Vector3 input = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) input += Vector3.up;
@@ -36,7 +29,7 @@ public class Player : MonoBehaviour
 
         transform.position += input.normalized * geschw;
 
-        if (currentMana >= 10)
+        if (stats.currentMana >= 10)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
             {
@@ -52,7 +45,7 @@ public class Player : MonoBehaviour
                 else if (richtung == (Vector3.down + Vector3.left).normalized) Feuerball.transform.eulerAngles = new Vector3(0, 0, 225);
                 Feuerball.GetComponent<Fireball>().SetDirection(richtung);
                 Destroy(Feuerball, 3);
-                currentMana -= 10;
+                stats.currentMana -= stats.manaCostPerShot;
             }
         }
 
@@ -73,16 +66,16 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        manaRegen += Time.deltaTime;
-        if (manaRegen >= 0.05f)
+        stats.manaRegen += Time.deltaTime;
+        if (stats.manaRegen >= 0.05f)
         {
-            currentMana += 1;
-            manaRegen = 0f;
+            stats.currentMana += 1;
+            stats.manaRegen = 0f;
         }
 
-        if (currentMana >= 100)
+        if (stats.currentMana >= 100)
         {
-            currentMana = maxMana;
+            stats.currentMana = stats.maxMana;
         }
     }
 }
