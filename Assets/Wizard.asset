@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   maxMana: 250
-  currentMana: 250
+  currentMana: 10
   manaCostPerShot: 10
   manaRegenPerSecond: 5
-  manaRegen: 0.027143199
+  manaRegen: 0
   maxHealth: 100
   currentHealth: 100
   movementSpeed: 10

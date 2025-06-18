@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -73,10 +74,21 @@ public class Player : MonoBehaviour
             stats.manaRegen = 0f;
         }
 
-        if (stats.currentMana >= 100)
+        if (stats.currentMana >= stats.maxMana)
         {
             stats.currentMana = stats.maxMana;
         }
+
+        if (stats.currentHealth == 0)
+        {
+            GameOver();
+        }
+
+    }
+
+    public void GameOver()
+    {
+        Destroy(gameObject);
     }
 }
 

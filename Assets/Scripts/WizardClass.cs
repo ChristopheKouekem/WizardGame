@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Class")]
 public class WizardClass : ScriptableObject
 {
-    public int maxMana = 100;
-    public int currentMana;
-    public int manaCostPerShot = 10;
-    public int manaRegenPerSecond = 5;
+    public float maxMana = 100;
+    public float currentMana;
+    public float manaCostPerShot = 10;
+    public float manaRegenPerSecond = 5;
     public float manaRegen;
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
     public float movementSpeed = 8f;
 }
