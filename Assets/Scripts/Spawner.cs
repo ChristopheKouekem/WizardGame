@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         counter -= Time.deltaTime;
-        if (counter <= 0 && GameObject.FindGameObjectsWithTag("Gegner").Length < 5)
+        if (counter <= 0 && GameObject.FindGameObjectsWithTag("Gegner").Length < 3)
         {
             Instantiate(enemyPrefab, new Vector3(10, 6, 0), Quaternion.identity);
             counter = 1;
