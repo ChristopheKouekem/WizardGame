@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     public GameObject prefab;
     private Vector3 richtung = Vector3.right;
 
@@ -25,7 +26,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) input += Vector3.down;
         if (Input.GetKey(KeyCode.A)) input += Vector3.left;
         if (Input.GetKey(KeyCode.D)) input += Vector3.right;
-
         if (input != Vector3.zero) richtung = input.normalized;
 
         transform.position += input.normalized * geschw;
@@ -34,7 +34,8 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
             {
-                GameObject Feuerball = Instantiate(prefab, transform.position + richtung * 1.0f, Quaternion.identity);
+
+                GameObject Feuerball = Instantiate(prefab, transform.position + richtung * 2f, Quaternion.identity);
 
                 if (richtung == Vector3.up) Feuerball.transform.eulerAngles = new Vector3(0, 0, 90);
                 else if (richtung == Vector3.down) Feuerball.transform.eulerAngles = new Vector3(0, 0, 270);
@@ -79,16 +80,26 @@ public class Player : MonoBehaviour
             stats.currentMana = stats.maxMana;
         }
 
-        if (stats.currentHealth == 0)
+        if (stats.currentHealth <= 0)
         {
             GameOver();
         }
 
     }
-
     public void GameOver()
     {
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Feuerball"))
+        {
+            GetComponent<Player>().stats.currentHealth -= 5;
+            Destroy(collision.gameObject);
+        }
+
+    }
+
 }
 

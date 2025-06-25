@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  Feuerball: {fileID: 8121136583277792621, guid: a0d29b801df2f0d48a6ea4729108947d, type: 3}
+  fireballCooldown: 3
 --- !u!70 &7475231551418404252
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
